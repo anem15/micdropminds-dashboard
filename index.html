@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><meta name="theme-color" content="#000"><title>MicDropMinds — Mission Control</title>
+<style>
+:root{--bg:#000;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.08);--tx:#f5f5f7;--mut:#86868b;--yt:#ff3b30;--x:#e8e8ed;--ig:#d946ef;--acc:#0a84ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1200px 600px at 50% -200px,#1a1a2e 0,#000 60%);color:var(--tx);font:15px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;padding:env(safe-area-inset-top) 0 40px}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+h1{font-size:clamp(32px,6vw,56px);font-weight:700;letter-spacing:-.035em;line-height:1.02;margin-top:6px}
+h1 span{background:linear-gradient(90deg,#fff,#8e8e93);-webkit-background-clip:text;color:transparent}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);border:1px solid var(--line);padding:8px 14px;border-radius:99px;background:var(--card);backdrop-filter:blur(20px)}
+.dot{width:8px;height:8px;border-radius:50%;background:#30d158;box-shadow:0 0 12px #30d158;animation:p 2s infinite}@keyframes p{50%{opacity:.35}}
+.grid{display:grid;gap:14px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1.4fr 1fr}
+@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;backdrop-filter:blur(30px);transition:border-color .3s}
+.card:hover{border-color:rgba(255,255,255,.16)}
+.lbl{font-size:12px;color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
+.big{font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.03em;margin-top:8px;font-variant-numeric:tabular-nums}
+.sub{font-size:12px;color:var(--mut);margin-top:6px}
+h2{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:44px 0 14px}
+.ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.pn{display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px}.pn i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.tag{font-size:11px;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--mut)}.tag.auto{color:#30d158;border-color:rgba(48,209,88,.35)}
+.stats{display:flex;gap:22px;margin-bottom:12px}.stats b{display:block;font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
+.row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+.row a{color:var(--tx);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.row a:hover{color:var(--acc)}
+.row .v{color:var(--mut);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:10px}.bar{display:grid;grid-template-columns:minmax(0,1fr) 60px;gap:10px;align-items:center;font-size:13px}
+.bar .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#d1d1d6}.track{grid-column:1/-1;height:6px;border-radius:9px;background:rgba(255,255,255,.06);overflow:hidden}
+.fill{height:100%;border-radius:9px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.tl .item{display:grid;grid-template-columns:92px 1fr;gap:14px;padding:13px 0;border-top:1px solid var(--line)}
+.tl .when{font-size:13px;color:var(--mut);font-variant-numeric:tabular-nums}.tl .when b{display:block;color:var(--tx);font-size:15px}
+.tl .ti{font-size:14px}.tl .ty{font-size:12px;color:var(--mut);margin-top:2px}
+.next{color:var(--acc)!important}
+svg text{fill:var(--mut);font-size:10px}
+footer{color:var(--mut);font-size:12px;text-align:center;margin-top:46px}
+</style></head><body><div class="wrap">
+<header><div><div class="eyebrow">MicDropMinds · Mission Control</div><h1><span>Every clip.<br>Every platform.</span></h1></div>
+<div class="live"><span class="dot"></span><span id="clock">Connecting…</span></div></header>
+<div class="grid g4" id="kpis"></div>
+<h2>Platforms</h2><div class="grid g3" id="plats"></div>
+<h2>Views</h2><div class="grid g2"><div class="card"><div class="ph"><span class="lbl">Views per post</span></div><div class="bars" id="bars"></div></div>
+<div class="card"><div class="ph"><span class="lbl">YouTube total views over time</span></div><div id="spark"></div></div></div>
+<h2>Posting schedule</h2><div class="grid g2"><div class="card tl"><div class="ph"><span class="lbl">Upcoming</span></div><div id="sched"></div></div>
+<div class="card tl"><div class="ph"><span class="lbl">Daily routines · MT</span></div><div id="rout"></div></div></div>
+<footer>YouTube refreshes every 30 min · X &amp; Instagram from manual.json · page refreshes every 60 s</footer></div>
+<script>
+const C={youtube:'var(--yt)',x:'var(--x)',instagram:'var(--ig)'};
+const n=v=>v==null?'—':typeof v==='number'?v.toLocaleString('en-US'):v;
+const sum=a=>{const k=a.filter(v=>typeof v==='number');return k.length?k.reduce((x,y)=>x+y,0):null};
+const tz={timeZone:'America/Denver'};
+const ago=s=>{if(!s)return'never';const m=(Date.now()-new Date(s))/6e4;return m<1?'just now':m<60?Math.round(m)+' min ago':m<1440?Math.round(m/60)+' h ago':new Date(s).toLocaleDateString('en-US',{...tz,month:'short',day:'numeric'})};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const bust=u=>u+(u.includes('?')?'&':'?')+'v='+Date.now();
+function plat(key,name,tag,stats,items,upd,url){return `<div class="card"><div class="ph"><a class="pn" href="${url}" target="_blank" style="color:inherit;text-decoration:none"><i style="background:${C[key]}"></i>${name}</a><span class="tag ${tag=='Live'?'auto':''}">${tag}</span></div>
+<div class="stats">${stats.map(s=>`<div><b>${n(s[1])}</b><span class="lbl">${s[0]}</span></div>`).join('')}</div>
+${items.map(i=>`<div class="row"><a href="${i.url}" target="_blank">${esc(i.title||i.id)}</a><span class="v">${n(i.views)}</span></div>`).join('')||'<div class="row"><span class="v">No posts yet</span></div>'}
+<div class="sub">Updated ${ago(upd)}</div></div>`}
+function spark(h){const el=document.getElementById('spark');if(!h||h.length<2){el.innerHTML='<div class="sub" style="padding:40px 0;text-align:center">Collecting data — the chart fills in as the 30-minute refreshes run.</div>';return}
+const W=600,H=200,p=24,xs=h.map(d=>+new Date(d.t)),ys=h.map(d=>d.youtube),x0=Math.min(...xs),x1=Math.max(...xs),y1=Math.max(...ys,1);
+const X=v=>p+(v-x0)/(x1-x0||1)*(W-2*p),Y=v=>H-p-v/y1*(H-2*p),pts=h.map(d=>`${X(+new Date(d.t))},${Y(d.youtube)}`).join(' ');
+el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff3b30" stop-opacity=".35"/><stop offset="1" stop-color="#ff3b30" stop-opacity="0"/></linearGradient></defs>
+<polygon points="${X(x0)},${H-p} ${pts} ${X(x1)},${H-p}" fill="url(#g)"/><polyline points="${pts}" fill="none" stroke="#ff3b30" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="${p}" y="${H-6}">${new Date(x0).toLocaleString('en-US',{...tz,month:'short',day:'numeric',hour:'numeric'})}</text><text x="${W-p}" y="${H-6}" text-anchor="end">${new Date(x1).toLocaleString('en-US',{...tz,month:'short',day:'numeric',hour:'numeric'})}</text><text x="${p}" y="14">${y1.toLocaleString()} views</text></svg>`}
+async function j(path){const r=await fetch(bust(path),{cache:'no-store'});if(!r.ok)throw new Error(path+' '+r.status);return r.json()}
+async function load(){try{
+const [yt,manual,history,schedule]=await Promise.all([
+  j('data/youtube.json'),j('data/manual.json'),j('data/history.json'),j('data/schedule.json')
+]);
+const m=manual||{},x=m.x||{},ig=m.instagram||{},yv=yt.videos||[],xp=x.posts||[],ir=ig.reels||[];
+const xv=sum(xp.map(p=>p.views)),iv=sum(ir.map(p=>p.views)),tot=sum([yt.total_views,xv,iv]);
+document.getElementById('kpis').innerHTML=[['Total views',tot,'Across platforms (known data)'],['YouTube views',yt.total_views,'Live'],['Instagram views',iv,'Manual'],['X views',xv,'Manual']]
+.map(k=>`<div class="card"><div class="lbl">${k[0]}</div><div class="big">${n(k[1])}</div><div class="sub">${k[2]}</div></div>`).join('');
+document.getElementById('plats').innerHTML=plat('youtube','YouTube','Live',[['Subscribers',yt.subscribers],['Videos',yt.video_count],['Views',yt.total_views]],yv,yt.updated,'https://www.youtube.com/@MicDropMinds')
++plat('instagram','Instagram','Manual',[['Followers',ig.followers],['Reels',ir.length],['Views',iv]],ir,ig.updated||null,ig.url)
++plat('x','X','Manual',[['Followers',x.followers],['Posts',xp.length],['Views',xv]],xp,x.updated||null,x.url);
+const all=[...yv.map(v=>({...v,k:'youtube'})),...ir.map(v=>({...v,k:'instagram'})),...xp.map(v=>({...v,k:'x'}))],mx=Math.max(1,...all.map(a=>a.views||0));
+document.getElementById('bars').innerHTML=all.sort((a,b)=>(b.views??-1)-(a.views??-1)).map(a=>`<div class="bar"><span class="t">${esc(a.title||a.id)}</span><span class="v" style="text-align:right;color:var(--mut)">${n(a.views)}</span><div class="track"><div class="fill" style="width:${(a.views||0)/mx*100}%;background:${C[a.k]}"></div></div></div>`).join('');
+spark(history||[]);
+const now=Date.now(),up=(schedule.scheduled||[]).filter(s=>new Date(s.when)>now-36e5).sort((a,b)=>new Date(a.when)-new Date(b.when));
+document.getElementById('sched').innerHTML=up.map((s,i)=>{const w=new Date(s.when);return`<div class="item"><div class="when ${i==0?'next':''}"><b>${w.toLocaleTimeString('en-US',{...tz,hour:'numeric',minute:'2-digit'})}</b>${w.toLocaleDateString('en-US',{...tz,weekday:'short',month:'short',day:'numeric'})}</div><div><div class="ti">${s.url?`<a href="${s.url}" target="_blank" style="color:inherit">${esc(s.title)}</a>`:esc(s.title)}</div><div class="ty">${esc(s.platform)} · ${esc(s.type)}</div></div></div>`}).join('')||'<div class="sub">Nothing scheduled</div>';
+document.getElementById('rout').innerHTML=(schedule.routines||[]).map(r=>{const[h,mi]=r.time.split(':');const t=new Date(2000,0,1,h,mi).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});return`<div class="item"><div class="when"><b>${t}</b>${r.days}</div><div><div class="ti">${esc(r.name)}</div></div></div>`}).join('');
+document.getElementById('clock').textContent='Live · YouTube synced '+ago(yt.updated);}catch(e){document.getElementById('clock').textContent='Reconnecting…';console.error(e)}}
+load();setInterval(load,60000);
+</script></body></html>

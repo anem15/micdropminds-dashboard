@@ -1,0 +1,119 @@
+{
+ "scheduled": [
+  {
+   "when": "2026-10-15T12:43:00-06:00",
+   "platform": "YouTube",
+   "type": "Long-form",
+   "title": "Navy Admiral, Pentagon Insider and Tucker Expose the UFO COVER-UP | Shawn Ryan Show",
+   "id": "KYRLwaGzKm4",
+   "url": "https://www.youtube.com/watch?v=KYRLwaGzKm4"
+  },
+  {
+   "when": "2026-10-15T13:17:00-06:00",
+   "platform": "X + Instagram",
+   "type": "Cross-post",
+   "title": "Long-form teaser + Great Pyramid / 755 UFO Whistleblowers to X (pending X login limit)"
+  },
+  {
+   "when": "2026-10-16T13:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "MrBallen Watched a GRENADE Hit Him | Shawn Ryan Show"
+  },
+  {
+   "when": "2026-10-15T13:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "They Rescued a Fox Reporter From UKRAINE | Shawn Ryan Show"
+  },
+  {
+   "when": "2026-10-15T18:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "The FBI Has Epstein's Black BOOK | Shawn Ryan Show"
+  },
+  {
+   "when": "2026-10-17T18:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "The Night ZARQAWI Died | Shawn Ryan Show"
+  },
+  {
+   "when": "2026-10-17T09:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "\"They Would Flat Out KILL You\" | Shawn Ryan Show"
+  },
+  {
+   "when": "2026-10-16T09:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "COCAINE Was Found in Egyptian Mummies | Shawn Ryan Show"
+  },
+  {
+   "when": "2026-10-17T13:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "Epstein's Death Is a Red HERRING | Shawn Ryan Show"
+  },
+  {
+   "when": "2026-10-18T09:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "The Great Pyramid Was a POWER Plant? | Shawn Ryan Show"
+  },
+  {
+   "when": "2026-10-18T18:13:00-06:00",
+   "platform": "YouTube",
+   "type": "Short (queue plan)",
+   "title": "Avi Loeb Says Elon Is WRONG About Aliens | Shawn Ryan Show"
+  }
+ ],
+ "routines": [
+  {
+   "time": "01:23",
+   "days": "Daily",
+   "name": "YouTube uploads"
+  },
+  {
+   "time": "09:17",
+   "days": "Daily",
+   "name": "Cross-posts to X + Instagram"
+  },
+  {
+   "time": "10:41",
+   "days": "Daily",
+   "name": "Comment engagement"
+  },
+  {
+   "time": "11:53",
+   "days": "Daily",
+   "name": "Follow clippers"
+  },
+  {
+   "time": "13:17",
+   "days": "Daily",
+   "name": "Cross-posts to X + Instagram"
+  },
+  {
+   "time": "14:47",
+   "days": "Daily",
+   "name": "Clip production"
+  },
+  {
+   "time": "16:41",
+   "days": "Daily",
+   "name": "Comment engagement"
+  },
+  {
+   "time": "18:17",
+   "days": "Daily",
+   "name": "Cross-posts to X + Instagram"
+  },
+  {
+   "time": "07:17",
+   "days": "Mondays",
+   "name": "Weekly niche scan"
+  }
+ ]
+}
