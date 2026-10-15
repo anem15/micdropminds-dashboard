@@ -44,7 +44,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;margin-top:46px}
 <div class="card"><div class="ph"><span class="lbl">YouTube total views over time</span></div><div id="spark"></div></div></div>
 <h2>Posting schedule</h2><div class="grid g2"><div class="card tl"><div class="ph"><span class="lbl">Upcoming</span></div><div id="sched"></div></div>
 <div class="card tl"><div class="ph"><span class="lbl">Daily routines · MT</span></div><div id="rout"></div></div></div>
-<footer>YouTube refreshes every 30 min · X &amp; Instagram from manual.json · page refreshes every 60 s</footer></div>
+<footer>YouTube refreshes every 30 min (Studio override wins when set) · X &amp; Instagram from manual.json · page refreshes every 60 s</footer></div>
 <script>
 const C={youtube:'var(--yt)',x:'var(--x)',instagram:'var(--ig)'};
 const n=v=>v==null?'—':typeof v==='number'?v.toLocaleString('en-US'):v;
@@ -68,11 +68,14 @@ async function load(){try{
 const [yt,manual,history,schedule]=await Promise.all([
   j('data/youtube.json'),j('data/manual.json'),j('data/history.json'),j('data/schedule.json')
 ]);
-const m=manual||{},x=m.x||{},ig=m.instagram||{},yv=yt.videos||[],xp=x.posts||[],ir=ig.reels||[];
-const xv=sum(xp.map(p=>p.views)),iv=sum(ir.map(p=>p.views)),tot=sum([yt.total_views,xv,iv]);
-document.getElementById('kpis').innerHTML=[['Total views',tot,'Across platforms (known data)'],['YouTube views',yt.total_views,'Live'],['Instagram views',iv,'Manual'],['X views',xv,'Manual']]
+const m=manual||{},x=m.x||{},ig=m.instagram||{},ys=m.youtube_studio||{},ov=ys.video_views||{},xp=x.posts||[],ir=ig.reels||[];
+const yv=(yt.videos||[]).map(v=>Object.prototype.hasOwnProperty.call(ov,v.id)?{...v,views:ov[v.id]}:v);
+const ytViews=Object.keys(ov).length?sum(yv.map(v=>v.views)):yt.total_views;
+const ytUpd=ys.updated||yt.updated,ytTag=Object.keys(ov).length?'Studio':'Live';
+const xv=sum(xp.map(p=>p.views)),iv=sum(ir.map(p=>p.views)),tot=sum([ytViews,xv,iv]);
+document.getElementById('kpis').innerHTML=[['Total views',tot,'Across platforms (known data)'],['YouTube views',ytViews,ytTag],['Instagram views',iv,'Manual'],['X views',xv,'Manual']]
 .map(k=>`<div class="card"><div class="lbl">${k[0]}</div><div class="big">${n(k[1])}</div><div class="sub">${k[2]}</div></div>`).join('');
-document.getElementById('plats').innerHTML=plat('youtube','YouTube','Live',[['Subscribers',yt.subscribers],['Videos',yt.video_count],['Views',yt.total_views]],yv,yt.updated,'https://www.youtube.com/@MicDropMinds')
+document.getElementById('plats').innerHTML=plat('youtube','YouTube',ytTag,[['Subscribers',yt.subscribers],['Videos',yt.video_count],['Views',ytViews]],yv,ytUpd,'https://www.youtube.com/@MicDropMinds')
 +plat('instagram','Instagram','Manual',[['Followers',ig.followers],['Reels',ir.length],['Views',iv]],ir,ig.updated||null,ig.url)
 +plat('x','X','Manual',[['Followers',x.followers],['Posts',xp.length],['Views',xv]],xp,x.updated||null,x.url);
 const all=[...yv.map(v=>({...v,k:'youtube'})),...ir.map(v=>({...v,k:'instagram'})),...xp.map(v=>({...v,k:'x'}))],mx=Math.max(1,...all.map(a=>a.views||0));
@@ -81,6 +84,6 @@ spark(history||[]);
 const now=Date.now(),up=(schedule.scheduled||[]).filter(s=>new Date(s.when)>now-36e5).sort((a,b)=>new Date(a.when)-new Date(b.when));
 document.getElementById('sched').innerHTML=up.map((s,i)=>{const w=new Date(s.when);return`<div class="item"><div class="when ${i==0?'next':''}"><b>${w.toLocaleTimeString('en-US',{...tz,hour:'numeric',minute:'2-digit'})}</b>${w.toLocaleDateString('en-US',{...tz,weekday:'short',month:'short',day:'numeric'})}</div><div><div class="ti">${s.url?`<a href="${s.url}" target="_blank" style="color:inherit">${esc(s.title)}</a>`:esc(s.title)}</div><div class="ty">${esc(s.platform)} · ${esc(s.type)}</div></div></div>`}).join('')||'<div class="sub">Nothing scheduled</div>';
 document.getElementById('rout').innerHTML=(schedule.routines||[]).map(r=>{const[h,mi]=r.time.split(':');const t=new Date(2000,0,1,h,mi).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});return`<div class="item"><div class="when"><b>${t}</b>${r.days}</div><div><div class="ti">${esc(r.name)}</div></div></div>`}).join('');
-document.getElementById('clock').textContent='Live · YouTube synced '+ago(yt.updated);}catch(e){document.getElementById('clock').textContent='Reconnecting…';console.error(e)}}
+document.getElementById('clock').textContent='Live · YouTube synced '+ago(ytUpd);}catch(e){document.getElementById('clock').textContent='Reconnecting…';console.error(e)}}
 load();setInterval(load,60000);
 </script></body></html>

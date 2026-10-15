@@ -1,21 +1,72 @@
 {
- "_help": "Manually maintained. Set numbers when known; leave null to show a dash. Update 'updated' (ISO time) on each platform whenever you edit it.",
+ "_help": "Manually maintained. Set numbers when known; leave null to show a dash. Update 'updated' (ISO time) on each platform whenever you edit it. Optional youtube_studio.video_views overrides auto-fetched youtube.json per video id; frontend prefers Studio.",
  "x": {
-  "handle": "MicDropMinds", "url": "https://x.com/MicDropMinds",
-  "followers": null, "updated": null,
+  "handle": "MicDropMinds",
+  "url": "https://x.com/MicDropMinds",
+  "followers": 1,
+  "updated": "2026-10-15T12:01:00-06:00",
   "posts": [
-   {"id": "2110758672666423390", "title": "Admiral: F-18s Nearly Hit a UFO (F-18 UFO)", "url": "https://x.com/MicDropMinds/status/2110758672666423390", "views": null, "likes": null},
-   {"id": "2110759097150873761", "title": "RFK Jr.: CIA Killed JFK (RFK JFK)", "url": "https://x.com/MicDropMinds/status/2110759097150873761", "views": null, "likes": null}
+   {
+    "id": "2110758672666423390",
+    "title": "Admiral: F-18s Nearly Hit a UFO (F-18 UFO)",
+    "url": "https://x.com/MicDropMinds/status/2110758672666423390",
+    "views": null,
+    "likes": null
+   },
+   {
+    "id": "2110759097150873761",
+    "title": "RFK Jr.: CIA Killed JFK (RFK JFK)",
+    "url": "https://x.com/MicDropMinds/status/2110759097150873761",
+    "views": null,
+    "likes": null
+   }
   ]
  },
  "instagram": {
-  "handle": "micdropminds.clips", "url": "https://www.instagram.com/micdropminds.clips/",
-  "followers": null, "updated": null,
+  "handle": "micdropminds.clips",
+  "url": "https://www.instagram.com/micdropminds.clips/",
+  "followers": 0,
+  "updated": "2026-10-15T12:01:00-06:00",
   "reels": [
-   {"id": "DehUJTEhH93", "title": "Reel DehUJTEhH93", "url": "https://www.instagram.com/micdropminds.clips/reel/DehUJTEhH93/", "views": null, "likes": null},
-   {"id": "DehUTTOJRAN", "title": "Reel DehUTTOJRAN", "url": "https://www.instagram.com/micdropminds.clips/reel/DehUTTOJRAN/", "views": null, "likes": null},
-   {"id": "DehgSCkBjjp", "title": "The Great Pyramid Was a Power Plant?", "url": "https://www.instagram.com/micdropminds.clips/reel/DehgSCkBjjp/", "views": null, "likes": null},
-   {"id": "DehgeplsXjK", "title": "He Has 755 UFO Whistleblowers", "url": "https://www.instagram.com/micdropminds.clips/reel/DehgeplsXjK/", "views": null, "likes": null}
+   {
+    "id": "DehUTTOJRAN",
+    "title": "RFK Jr.: My Father's First Thought Was the CIA Killed JFK",
+    "url": "https://www.instagram.com/micdropminds.clips/reel/DehUTTOJRAN/",
+    "views": 169,
+    "likes": null
+   },
+   {
+    "id": "DehUJTEhH93",
+    "title": "Admiral: F-18s Nearly Hit a UFO",
+    "url": "https://www.instagram.com/micdropminds.clips/reel/DehUJTEhH93/",
+    "views": 51,
+    "likes": null
+   },
+   {
+    "id": "DehgSCkBjjp",
+    "title": "Great Pyramid Power Plant",
+    "url": "https://www.instagram.com/micdropminds.clips/reel/DehgSCkBjjp/",
+    "views": 14,
+    "likes": null
+   },
+   {
+    "id": "DehgeplsXjK",
+    "title": "755 UFO Whistleblowers",
+    "url": "https://www.instagram.com/micdropminds.clips/reel/DehgeplsXjK/",
+    "views": 1,
+    "likes": null
+   }
   ]
+ },
+ "youtube_studio": {
+  "updated": "2026-10-15T12:01:00-06:00",
+  "source": "YouTube Studio",
+  "video_views": {
+   "Fp_MGq_PqCY": 7,
+   "o6GS5zsG2Go": 5,
+   "uXQi8GiC7F8": 0,
+   "jGpjbUYTKig": 0,
+   "XeHEhgHTkDs": 0
+  }
  }
 }
