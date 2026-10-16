@@ -1,9 +1,25 @@
 {
- "updated": "2026-10-16T01:51:09.443114+00:00",
+ "updated": "2026-10-16T02:51:14.101016+00:00",
  "subscribers": null,
- "video_count": 9,
- "total_views": 25,
+ "video_count": 11,
+ "total_views": 28,
  "videos": [
+  {
+   "id": "VcXYUqqGjQM",
+   "title": "\"They Would Flat Out Kill You\" | Shawn Ryan Show",
+   "published": null,
+   "views": 2,
+   "kind": "short",
+   "url": "https://www.youtube.com/shorts/VcXYUqqGjQM"
+  },
+  {
+   "id": "4zLyGY6eoD0",
+   "title": "A Cartel Hit Happened LIVE on an Influencer's TikTok Stream | Shawn Ryan Show",
+   "published": null,
+   "views": null,
+   "kind": "short",
+   "url": "https://www.youtube.com/shorts/4zLyGY6eoD0"
+  },
   {
    "id": "nOb2z7j0NTY",
    "title": "MrBallen Watched a Grenade Hit Him | Shawn Ryan Show",
@@ -56,7 +72,7 @@
    "id": "Fp_MGq_PqCY",
    "title": "The FBI Has Epstein's Black Book | Shawn Ryan Show",
    "published": null,
-   "views": 9,
+   "views": 10,
    "kind": "short",
    "url": "https://www.youtube.com/shorts/Fp_MGq_PqCY"
   },
@@ -78,6 +94,6 @@
   }
  ],
  "errors": [
-  "rss: HTTP Error 500: Internal Server Error"
+  "rss: HTTP Error 404: Not Found"
  ]
 }
